@@ -24,8 +24,12 @@ nocache_headers();
 
 $comment = wp_handle_comment_submission( wp_unslash( $_POST ) );
 if ( is_wp_error( $comment ) ) {
+//	intval 是获取变量的整数值函数，这里的意思是获取是否有数据错误
 	$data = intval( $comment->get_error_data() );
 	if ( ! empty( $data ) ) {
+//		empty判断为空的时候会返回true,再经过！就会变成false然后就不会执行if语句，但是empty判断不为空的时候会返回false，在经过！就会变成
+//		true，所以就会执行if语句
+//		如果获取的数据不为空，那么就要输出错误信息
 		wp_die( '<p>' . $comment->get_error_message() . '</p>', __( 'Comment Submission Failure' ), array( 'response' => $data, 'back_link' => true ) );
 	} else {
 		exit;

@@ -2650,6 +2650,7 @@ function wp_nonce_ays( $action ) {
  *                                  Default is the value of is_rtl().
  * }
  */
+//指的是有错误的时候，传递的参数是message,title,args
 function wp_die( $message = '', $title = '', $args = array() ) {
 
 	if ( is_int( $args ) ) {

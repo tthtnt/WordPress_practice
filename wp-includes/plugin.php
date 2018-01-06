@@ -422,6 +422,7 @@ function do_action($tag, $arg = '') {
 	global $wp_filter, $wp_actions, $wp_current_filter;
 
 	if ( ! isset($wp_actions[$tag]) )
+//		如果没有设置$wp_actions[$tag],就给$wp_actions[$tag]赋值为1；如果设置了值就++
 		$wp_actions[$tag] = 1;
 	else
 		++$wp_actions[$tag];

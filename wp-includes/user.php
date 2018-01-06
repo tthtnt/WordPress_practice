@@ -2561,10 +2561,13 @@ function wp_get_users_with_no_role( $site_id = null ) {
  * @return WP_User Current WP_User instance.
  */
 function _wp_get_current_user() {
+//	声明了全局变量current_user,目前的用户？
 	global $current_user;
 
 	if ( ! empty( $current_user ) ) {
+//		instanceof操作符检查三件事情：实例是否某个特定的类型，实例是否从某个特定的类型继承，实例或者他的任何祖先类是否实现了特定的接口。
 		if ( $current_user instanceof WP_User ) {
+//			判断current_user是否是WP_User类的实例，如果是，则返回current_user;
 			return $current_user;
 		}
 
